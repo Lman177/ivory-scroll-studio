@@ -1,73 +1,180 @@
-# Welcome to your Lovable project
+# WeddingInvites - Digital Wedding Invitation Platform
 
-## Project info
+A modern, responsive web platform for creating and managing beautiful digital wedding invitations. Built with React, TypeScript, Tailwind CSS, and featuring elegant wedding-themed design.
 
-**URL**: https://lovable.dev/projects/b2474b98-4808-4f48-ba02-2b61017b9d76
+## 🎨 Features
 
-## How can I edit this code?
+- **Beautiful Templates**: 8+ professionally designed templates across 6 categories
+- **Responsive Design**: Optimized for all devices with mobile-first approach
+- **Template Filtering**: Search and filter by category, package type, and tags
+- **Pricing Plans**: 3-tier pricing structure (Free, Pro, Premium)
+- **Contact System**: Full contact form with validation
+- **SEO Optimized**: Semantic HTML, meta tags, and Open Graph support
+- **Elegant Design**: Wedding-themed color palette with soft neutrals and elegant typography
 
-There are several ways of editing your application.
+## 🚀 Tech Stack
 
-**Use Lovable**
+- **Frontend**: React 18, TypeScript, Vite
+- **Styling**: Tailwind CSS with custom design system
+- **UI Components**: Shadcn/ui component library
+- **Routing**: React Router Dom
+- **Forms**: React Hook Form with Zod validation
+- **Icons**: Lucide React
+- **Fonts**: Google Fonts (Playfair Display + Inter)
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/b2474b98-4808-4f48-ba02-2b61017b9d76) and start prompting.
+## 📁 Project Structure
 
-Changes made via Lovable will be committed automatically to this repo.
+```
+src/
+├── components/           # Reusable UI components
+│   ├── ui/              # Shadcn/ui components
+│   ├── Header.tsx       # Main navigation
+│   ├── Footer.tsx       # Footer with newsletter
+│   ├── Layout.tsx       # Page layout wrapper
+│   └── TemplateCard.tsx # Template display component
+├── data/                # Sample data and utilities
+│   ├── templates.ts     # Template data and functions
+│   ├── blog.ts          # Blog post data
+│   └── pricing.ts       # Pricing tier data
+├── pages/               # Route components
+│   ├── Home.tsx         # Homepage with hero section
+│   ├── Landing.tsx      # Extended landing with tutorials
+│   ├── Templates.tsx    # Template browser with filters
+│   ├── TemplateDetail.tsx # Individual template details
+│   ├── Pricing.tsx      # Pricing comparison table
+│   ├── Contact.tsx      # Contact form
+│   └── NotFound.tsx     # 404 error page
+├── types/               # TypeScript type definitions
+└── App.tsx             # Main app component with routing
+```
 
-**Use your preferred IDE**
+## 🎯 Template System
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### Template Categories
+- **Classic**: Timeless, traditional designs
+- **Modern**: Contemporary, minimalist styles
+- **Floral**: Nature-inspired with botanical elements
+- **Minimal**: Clean, simple designs
+- **Boho**: Free-spirited, artistic styles
+- **Luxury**: Opulent designs with premium elements
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### Package Types
+- **FREE**: Basic templates and features
+- **PRO**: Enhanced templates with additional features
+- **PREMIUM**: All templates with full feature access
 
-Follow these steps:
+### Adding New Templates
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+To add a new template to the system:
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+1. **Add template data** in `src/data/templates.ts`:
+```typescript
+{
+  id: "unique_template_id",
+  templateName: "Your Template Name",
+  templateDescription: "Description of the template",
+  templateCodeName: "TEMPLATE_CODE_NAME",
+  previewImageUrl: "/path/to/preview/image.jpg",
+  requiredPackage: "FREE" | "PRO" | "PREMIUM",
+  category: "Classic" | "Modern" | "Floral" | "Minimal" | "Boho" | "Luxury",
+  tags: ["tag1", "tag2", "tag3"],
+  colors: ["#color1", "#color2", "#color3"],
+  demoUrl: "/demo/template-code-name",
+  featured?: true // Optional: mark as featured
+}
+```
 
-# Step 3: Install the necessary dependencies.
-npm i
+2. **Add preview image** to the public directory or use a CDN URL
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+3. **Create demo page** (optional) at the specified `demoUrl`
+
+### Adding New Categories
+
+1. Update the `CategoryType` in `src/types/index.ts`
+2. Add the new category to the `categories` array in `src/data/templates.ts`
+3. Ensure your templates use the new category
+
+## 🎨 Design System
+
+The project uses a comprehensive design system with:
+
+### Colors
+- **Primary Colors**: Wedding rose (#D1748F), Wedding blush (#F4D1E1)
+- **Neutral Colors**: Wedding cream (#F7F3F0), Wedding charcoal (#3C352E)
+- **Accent Colors**: Wedding gold (#D4AF37), Wedding sage (#B8C5A6)
+
+### Typography
+- **Display Font**: Playfair Display (headings)
+- **Body Font**: Inter (body text)
+
+### Custom Utilities
+- `gradient-primary`: Primary color gradient
+- `gradient-elegant`: Elegant background gradient
+- `shadow-elegant`: Elegant drop shadow
+- `shadow-soft`: Soft drop shadow
+
+## 🚀 Getting Started
+
+1. **Install dependencies**:
+```bash
+npm install
+```
+
+2. **Start development server**:
+```bash
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+3. **Build for production**:
+```bash
+npm run build
+```
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## 📧 Contact & Support
 
-**Use GitHub Codespaces**
+For questions about the platform or technical support:
+- Email: hello@weddinginvites.com
+- Phone: +1 (555) 123-4567
+- Hours: Mon-Fri, 8am-6pm PST
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## 🔧 Customization
 
-## What technologies are used for this project?
+### Adding New Pricing Tiers
 
-This project is built with:
+Update `src/data/pricing.ts` to modify pricing plans and features.
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+### Customizing Design Theme
 
-## How can I deploy this project?
+Modify design tokens in `src/index.css` and `tailwind.config.ts` to change colors, fonts, and spacing.
 
-Simply open [Lovable](https://lovable.dev/projects/b2474b98-4808-4f48-ba02-2b61017b9d76) and click on Share -> Publish.
+### Adding New Pages
 
-## Can I connect a custom domain to my Lovable project?
+1. Create page component in `src/pages/`
+2. Add route in `src/App.tsx`
+3. Update navigation in `src/components/Header.tsx`
 
-Yes, you can!
+## 📱 Responsive Design
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+The platform is built with mobile-first responsive design:
+- **Mobile**: Optimized for phones (320px+)
+- **Tablet**: Enhanced layout for tablets (768px+)
+- **Desktop**: Full-featured desktop experience (1024px+)
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+## ⚡ Performance
+
+- Optimized images with lazy loading
+- Code splitting with React Router
+- Efficient re-renders with React optimization patterns
+- Lightweight bundle with tree-shaking
+
+## 🔍 SEO Features
+
+- Semantic HTML structure
+- Meta tags and Open Graph support
+- Structured data ready
+- Accessible design with ARIA labels
+- Clean, crawlable URLs
+
+---
+
+Built with ❤️ for couples planning their perfect wedding day.
