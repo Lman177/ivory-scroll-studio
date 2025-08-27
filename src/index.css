@@ -7,6 +7,10 @@ All colors MUST be HSL.
 */
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
   :root {
     /* Wedding theme colors - soft neutrals with elegant accents */
     --background: 35 10% 98%;        /* Very light warm white - main page background */

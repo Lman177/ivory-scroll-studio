@@ -81,8 +81,8 @@ export default function HomePage() {
                 className="text-lg px-8"
                 asChild
               >
-                <Link href="/templates">
-                  Browse Templates
+                <Link href="#how-it-works" className="scroll-smooth">
+                  How it works? 
                 </Link>
               </Button>
             </div>
@@ -133,7 +133,7 @@ export default function HomePage() {
       </section>
 
       {/* How It Works Section */}
-      <section className="py-20 bg-wedding-cream">
+      <section id="how-it-works" className="py-20 bg-wedding-cream">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl font-display font-bold mb-4">
@@ -154,9 +154,7 @@ export default function HomePage() {
                     <div className="w-16 h-16 mx-auto mb-6 gradient-primary rounded-full flex items-center justify-center shadow-soft">
                       <Icon className="w-8 h-8 text-white" />
                     </div>
-                    <div className="absolute -top-2 -right-2 w-8 h-8 bg-wedding-gold rounded-full flex items-center justify-center text-white font-bold text-sm">
-                      {index + 1}
-                    </div>
+                    
                   </div>
                   <h3 className="font-display text-xl font-semibold mb-3">{step.title}</h3>
                   <p className="text-muted-foreground leading-relaxed">
