@@ -5,7 +5,7 @@ import { Badge } from '@/components/ui/badge';
 import { pricingTiers, getFeatureMatrix } from '@/data/pricing';
 import { Check, Crown, Star } from 'lucide-react';
 
-export default function PricingPage() {
+export default function Pricing() {
   const featureMatrix = getFeatureMatrix();
 
   return (
@@ -28,100 +28,105 @@ export default function PricingPage() {
               key={tier.name} 
               className={`relative ${
                 tier.popular 
-                  ? 'border-purple-500 shadow-lg scale-105' 
-                  : 'border-gray-200'
+                  ? 'border-primary shadow-elegant scale-105' 
+                  : 'hover:shadow-soft transition-shadow duration-300'
               }`}
             >
               {tier.popular && (
-                <Badge className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-purple-600">
-                  <Star className="w-3 h-3 mr-1" />
-                  Most Popular
-                </Badge>
+                <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
+                  <Badge className="bg-primary text-primary-foreground px-4 py-1">
+                    <Star className="w-3 h-3 mr-1" />
+                    Most Popular
+                  </Badge>
+                </div>
               )}
               
-              <CardHeader className="text-center pb-4">
-                <CardTitle className="text-2xl font-bold flex items-center justify-center gap-2">
-                  {tier.name === 'Premium' && <Crown className="w-5 h-5 text-purple-600" />}
-                  {tier.name}
-                </CardTitle>
+              <CardHeader className="text-center pb-8 pt-8">
+                <div className="mb-4">
+                  {tier.name === 'Premium' && <Crown className="w-8 h-8 mx-auto text-wedding-gold mb-2" />}
+                  {tier.name === 'Pro' && <Star className="w-8 h-8 mx-auto text-primary mb-2" />}
+                  {tier.name === 'Free' && <div className="w-8 h-8 mx-auto mb-2" />}
+                </div>
+                <CardTitle className="text-2xl font-display">{tier.name}</CardTitle>
                 <div className="mt-4">
                   <span className="text-4xl font-bold">{tier.price}</span>
-                  {tier.name !== 'Free' && <span className="text-muted-foreground">/month</span>}
+                  {tier.price !== '$0' && <span className="text-muted-foreground"> / month</span>}
                 </div>
-                <p className="text-muted-foreground mt-2">{tier.description}</p>
+                <p className="text-sm text-muted-foreground mt-2">{tier.description}</p>
               </CardHeader>
               
-              <CardContent>
-                <Button 
-                  className={`w-full mb-6 ${
-                    tier.popular 
-                      ? 'bg-purple-600 hover:bg-purple-700' 
-                      : ''
-                  }`}
-                  variant={tier.popular ? 'default' : 'outline'}
-                >
-                  {tier.cta}
-                </Button>
-                
+              <CardContent className="space-y-4">
                 <ul className="space-y-3">
                   {tier.features.map((feature, featureIndex) => (
                     <li key={featureIndex} className="flex items-start gap-3">
-                      <Check className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
+                      <Check className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
                       <span className="text-sm">{feature}</span>
                     </li>
                   ))}
                 </ul>
+                
+                <Button 
+                  className={`w-full mt-6 ${
+                    tier.popular 
+                      ? 'gradient-primary text-white hover:opacity-90' 
+                      : tier.name === 'Premium'
+                      ? 'bg-wedding-gold text-white hover:bg-wedding-gold/90'
+                      : ''
+                  }`}
+                  variant={tier.popular ? 'default' : tier.name === 'Premium' ? 'default' : 'outline'}
+                  size="lg"
+                >
+                  {tier.cta}
+                </Button>
               </CardContent>
             </Card>
           ))}
         </div>
 
-        {/* Feature Comparison */}
-        <div className="mb-16">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-display font-bold mb-4">
-              Compare All Features
-            </h2>
-            <p className="text-lg text-muted-foreground">
-              See exactly what's included in each plan
-            </p>
-          </div>
-
+        {/* Feature Comparison Table */}
+        <div className="bg-wedding-cream rounded-lg p-8">
+          <h2 className="text-2xl font-display font-bold text-center mb-8">
+            Compare All Features
+          </h2>
+          
           <div className="overflow-x-auto">
-            <table className="w-full bg-white rounded-lg shadow">
+            <table className="w-full">
               <thead>
-                <tr className="border-b">
-                  <th className="text-left p-4 font-semibold">Features</th>
-                  {pricingTiers.map((tier) => (
-                    <th key={tier.name} className="text-center p-4 font-semibold">
-                      {tier.name}
-                    </th>
-                  ))}
+                <tr className="border-b border-border">
+                  <th className="text-left py-4 px-4 font-semibold">Feature</th>
+                  <th className="text-center py-4 px-4 font-semibold">Free</th>
+                  <th className="text-center py-4 px-4 font-semibold relative">
+                    Pro
+                    <Badge className="absolute -top-2 left-1/2 transform -translate-x-1/2 bg-primary text-xs z-10">
+                      Popular
+                    </Badge>
+                  </th>
+                  <th className="text-center py-4 px-4 font-semibold">Premium</th>
                 </tr>
               </thead>
               <tbody>
-                {featureMatrix.map((feature, index) => (
-                  <tr key={index} className="border-b hover:bg-gray-50">
-                    <td className="p-4 font-medium">{feature.feature}</td>
-                    <td className="text-center p-4">
-                      {feature.free ? (
-                        <Check className="w-5 h-5 text-green-500 mx-auto" />
+                {featureMatrix.map((row, index) => (
+                  <tr key={index} className={`border-b border-border/50 ${index % 2 === 0 ? 'bg-background/50' : ''}`}>
+                    <td className="py-3 px-4 text-sm">{row.feature}</td>
+                    <td className="text-center py-3 px-4">
+                      {row.free ? (
+                        <Check className="w-5 h-5 text-green-600 mx-auto" />
                       ) : (
-                        <span className="text-gray-300">—</span>
+                        <span className="text-muted-foreground">–</span>
                       )}
                     </td>
-                    <td className="text-center p-4">
-                      {feature.pro ? (
-                        <Check className="w-5 h-5 text-green-500 mx-auto" />
+                    <td className="text-center py-3 px-4">
+                      {row.pro ? (
+                        <Check className="w-5 h-5 text-green-600 mx-auto" />
                       ) : (
-                        <span className="text-gray-300">—</span>
+                        <span className="text-muted-foreground">–</span>
                       )}
                     </td>
-                    <td className="text-center p-4">
-                      {feature.premium ? (
-                        <Check className="w-5 h-5 text-green-500 mx-auto" />
+                    <td className="text-center py-3 px-4">
+                      {row.premium ? (
+                        <Check className="w-5 h-5 text-green-600 mx-auto" />
                       ) : (
-                        <span className="text-gray-300">—</span>
+                        <span className="text-muted-foreground">–</span>
                       )}
                     </td>
                   </tr>
@@ -132,55 +137,16 @@ export default function PricingPage() {
         </div>
 
         {/* FAQ Section */}
-        <div className="text-center mb-16">
-          <h2 className="text-3xl font-display font-bold mb-8">
-            Frequently Asked Questions
+        <div className="mt-16 text-center">
+          <h2 className="text-2xl font-display font-bold mb-4">
+            Questions About Pricing?
           </h2>
-          
-          <div className="grid md:grid-cols-2 gap-8 text-left max-w-4xl mx-auto">
-            <div>
-              <h3 className="font-semibold mb-2">Can I change plans anytime?</h3>
-              <p className="text-muted-foreground">
-                Yes! You can upgrade or downgrade your plan at any time. Changes take effect immediately.
-              </p>
-            </div>
-            
-            <div>
-              <h3 className="font-semibold mb-2">What payment methods do you accept?</h3>
-              <p className="text-muted-foreground">
-                We accept all major credit cards, PayPal, and Apple Pay for your convenience.
-              </p>
-            </div>
-            
-            <div>
-              <h3 className="font-semibold mb-2">Is there a money-back guarantee?</h3>
-              <p className="text-muted-foreground">
-                Yes, we offer a 30-day money-back guarantee. No questions asked.
-              </p>
-            </div>
-            
-            <div>
-              <h3 className="font-semibold mb-2">Do you offer custom designs?</h3>
-              <p className="text-muted-foreground">
-                Premium users get access to our custom design service for truly unique invitations.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        {/* CTA Section */}
-        <div className="text-center">
-          <div className="bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl p-8 text-white">
-            <h2 className="text-3xl font-display font-bold mb-4">
-              Ready to Create Your Perfect Invitation?
-            </h2>
-            <p className="text-xl mb-6 opacity-90">
-              Join thousands of couples who trust Ivory Scroll Studio
-            </p>
-            <Button size="lg" variant="secondary" className="bg-white text-purple-600 hover:bg-gray-100">
-              Start Free Trial
-            </Button>
-          </div>
+          <p className="text-muted-foreground mb-6">
+            We're here to help you choose the right plan for your wedding.
+          </p>
+          <Button variant="outline" size="lg">
+            Contact Support
+          </Button>
         </div>
       </div>
     </Layout>

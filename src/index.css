@@ -9,109 +9,106 @@ All colors MUST be HSL.
 @layer base {
   :root {
     /* Wedding theme colors - soft neutrals with elegant accents */
-    --background: 35 10% 98%;
-    --foreground: 25 15% 15%;
+    --background: 35 10% 98%;        /* Very light warm white - main page background */
+    --foreground: 25 15% 15%;        /* Dark brown - main text color */
 
-    --card: 30 20% 96%;
-    --card-foreground: 25 15% 15%;
+    --card: 30 20% 96%;              /* Light cream - card backgrounds */
+    --card-foreground: 25 15% 15%;   /* Dark brown - text on cards */
 
-    --popover: 30 20% 96%;
-    --popover-foreground: 25 15% 15%;
+    --popover: 30 20% 96%;           /* Light cream - popover backgrounds */
+    --popover-foreground: 25 15% 15%; /* Dark brown - text in popovers */
 
-    --primary: 345 25% 65%;
-    --primary-foreground: 30 20% 96%;
+    --primary: 345 25% 65%;          /* Muted rose pink - primary brand color */
+    --primary-foreground: 30 20% 96%; /* Light cream - text on primary backgrounds */
 
-    --secondary: 35 15% 88%;
-    --secondary-foreground: 25 15% 15%;
+    --secondary: 35 15% 88%;         /* Light beige - secondary elements */
+    --secondary-foreground: 25 15% 15%; /* Dark brown - text on secondary backgrounds */
 
-    --muted: 30 10% 92%;
-    --muted-foreground: 25 8% 45%;
+    --muted: 30 10% 92%;             /* Very light beige - muted backgrounds */
+    --muted-foreground: 25 8% 45%;   /* Medium gray-brown - muted text */
 
-    --accent: 355 30% 85%;
-    --accent-foreground: 25 15% 15%;
+    --accent: 355 30% 85%;           /* Light pink - accent elements */
+    --accent-foreground: 25 15% 15%; /* Dark brown - text on accent backgrounds */
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 84.2% 60.2%;    /* Bright red - error/destructive actions */
+    --destructive-foreground: 210 40% 98%; /* Light blue-white - text on destructive backgrounds */
 
-    --border: 30 15% 85%;
-    --input: 30 15% 85%;
-    --ring: 345 25% 65%;
+    --border: 30 15% 85%;            /* Light tan - border color */
+    --input: 30 15% 85%;             /* Light tan - input field borders */
+    --ring: 345 25% 65%;             /* Muted rose pink - focus ring color */
 
     --radius: 0.75rem;
     
     /* Wedding-specific colors */
-    --wedding-rose: 345 35% 75%;
-    --wedding-blush: 355 40% 90%;
-    --wedding-gold: 45 35% 70%;
-    --wedding-sage: 85 15% 75%;
-    --wedding-cream: 35 25% 95%;
-    --wedding-charcoal: 25 15% 25%;
+    --wedding-rose: 345 35% 75%;     /* Soft rose pink - romantic accent */
+    --wedding-blush: 355 40% 90%;    /* Very light blush pink - delicate highlights */
+    --wedding-gold: 45 35% 70%;      /* Muted gold - elegant metallic accent */
+    --wedding-sage: 85 15% 75%;      /* Soft sage green - natural complement */
+    --wedding-cream: 35 25% 95%;     /* Rich cream - luxurious background */
+    --wedding-charcoal: 25 15% 25%;  /* Dark charcoal brown - sophisticated dark text */
     
-    /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(var(--wedding-rose)), hsl(var(--wedding-blush)));
-    --gradient-elegant: linear-gradient(180deg, hsl(var(--wedding-cream)), hsl(var(--background)));
+    /* Gradients - elegant color transitions */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--wedding-rose)), hsl(var(--wedding-blush))); /* Rose to blush gradient */
+    --gradient-elegant: linear-gradient(180deg, hsl(var(--wedding-cream)), hsl(var(--background))); /* Cream to background fade */
     
-    /* Shadows */
-    --shadow-elegant: 0 10px 30px -10px hsl(var(--primary) / 0.15);
-    --shadow-soft: 0 4px 20px -5px hsl(var(--primary) / 0.1);
+    /* Shadows - soft, elegant depth effects */
+    --shadow-elegant: 0 10px 30px -10px hsl(var(--primary) / 0.15); /* Large, soft shadow for cards */
+    --shadow-soft: 0 4px 20px -5px hsl(var(--primary) / 0.1);       /* Subtle shadow for buttons */
     
-    /* Typography */
-    --font-display: 'Playfair Display', serif;
-    --font-body: 'Inter', sans-serif;
+    /* Typography - font family definitions */
+    --font-display: 'Playfair Display', serif; /* Elegant serif for headlines */
+    --font-body: 'Inter', sans-serif;          /* Clean sans-serif for body text */
 
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Sidebar colors for navigation components */
+    --sidebar-background: 0 0% 98%;          /* Very light gray - sidebar background */
+    --sidebar-foreground: 240 5.3% 26.1%;   /* Dark blue-gray - sidebar text */
+    --sidebar-primary: 240 5.9% 10%;        /* Very dark blue - sidebar primary elements */
+    --sidebar-primary-foreground: 0 0% 98%; /* Light gray - text on sidebar primary */
+    --sidebar-accent: 240 4.8% 95.9%;       /* Very light blue-gray - sidebar accent */
+    --sidebar-accent-foreground: 240 5.9% 10%; /* Very dark blue - text on sidebar accent */
+    --sidebar-border: 220 13% 91%;          /* Light blue-gray - sidebar borders */
+    --sidebar-ring: 217.2 91.2% 59.8%;      /* Bright blue - sidebar focus ring */
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    /* Dark theme colors - maintaining elegance in dark mode */
+    --background: 222.2 84% 4.9%;       /* Very dark blue - dark mode background */
+    --foreground: 210 40% 98%;          /* Light blue-white - dark mode text */
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;             /* Very dark blue - dark mode card background */
+    --card-foreground: 210 40% 98%;     /* Light blue-white - dark mode card text */
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;          /* Very dark blue - dark mode popover background */
+    --popover-foreground: 210 40% 98%;  /* Light blue-white - dark mode popover text */
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 210 40% 98%;             /* Light blue-white - dark mode primary */
+    --primary-foreground: 222.2 47.4% 11.2%; /* Dark blue - text on dark mode primary */
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 217.2 32.6% 17.5%;     /* Dark blue-gray - dark mode secondary */
+    --secondary-foreground: 210 40% 98%; /* Light blue-white - text on dark mode secondary */
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 217.2 32.6% 17.5%;         /* Dark blue-gray - dark mode muted background */
+    --muted-foreground: 215 20.2% 65.1%; /* Medium blue-gray - dark mode muted text */
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 217.2 32.6% 17.5%;        /* Dark blue-gray - dark mode accent */
+    --accent-foreground: 210 40% 98%;   /* Light blue-white - text on dark mode accent */
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;       /* Dark red - dark mode destructive actions */
+    --destructive-foreground: 210 40% 98%; /* Light blue-white - text on dark mode destructive */
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --border: 217.2 32.6% 17.5%;        /* Dark blue-gray - dark mode borders */
+    --input: 217.2 32.6% 17.5%;         /* Dark blue-gray - dark mode input borders */
+    --ring: 212.7 26.8% 83.9%;          /* Light blue - dark mode focus ring */
+    
+    /* Dark mode sidebar colors */
+    --sidebar-background: 240 5.9% 10%;     /* Very dark blue - dark sidebar background */
+    --sidebar-foreground: 240 4.8% 95.9%;   /* Light blue-gray - dark sidebar text */
+    --sidebar-primary: 224.3 76.3% 48%;     /* Medium blue - dark sidebar primary */
+    --sidebar-primary-foreground: 0 0% 100%; /* Pure white - text on dark sidebar primary */
+    --sidebar-accent: 240 3.7% 15.9%;       /* Dark blue-gray - dark sidebar accent */
+    --sidebar-accent-foreground: 240 4.8% 95.9%; /* Light blue-gray - text on dark sidebar accent */
+    --sidebar-border: 240 3.7% 15.9%;       /* Dark blue-gray - dark sidebar borders */
+    --sidebar-ring: 217.2 91.2% 59.8%;      /* Bright blue - dark sidebar focus ring */
   }
 }
 
@@ -130,34 +127,42 @@ All colors MUST be HSL.
 }
 
 @layer utilities {
+  /* Primary gradient utility - rose to blush pink transition */
   .gradient-primary {
     background: var(--gradient-primary);
   }
   
+  /* Elegant gradient utility - cream to background fade */
   .gradient-elegant {
     background: var(--gradient-elegant);
   }
   
+  /* Elegant shadow utility - large, soft shadow for important elements */
   .shadow-elegant {
     box-shadow: var(--shadow-elegant);
   }
   
+  /* Soft shadow utility - subtle shadow for interactive elements */
   .shadow-soft {
     box-shadow: var(--shadow-soft);
   }
   
+  /* Wedding rose text color - soft romantic pink */
   .text-wedding-rose {
     color: hsl(var(--wedding-rose));
   }
   
+  /* Wedding gold text color - elegant metallic accent */
   .text-wedding-gold {
     color: hsl(var(--wedding-gold));
   }
   
+  /* Wedding cream background - luxurious warm background */
   .bg-wedding-cream {
     background-color: hsl(var(--wedding-cream));
   }
   
+  /* Wedding blush background - delicate light pink background */
   .bg-wedding-blush {
     background-color: hsl(var(--wedding-blush));
   }
