@@ -2,7 +2,7 @@ import { Template } from '@/types';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { Eye, Star } from 'lucide-react';
 
 interface TemplateCardProps {
@@ -47,7 +47,7 @@ export function TemplateCard({ template, showDetails = false }: TemplateCardProp
                 className="bg-white text-black hover:bg-white/90"
                 asChild
               >
-                <Link to={`/templates/${template.templateCodeName}`}>
+                <Link href={`/templates/${template.templateCodeName}`}>
                   <Eye className="w-4 h-4 mr-2" />
                   Preview
                 </Link>
@@ -92,7 +92,7 @@ export function TemplateCard({ template, showDetails = false }: TemplateCardProp
           className="w-full gradient-primary text-white hover:opacity-90"
           asChild
         >
-          <Link to={`/templates/${template.templateCodeName}`}>
+          <Link href={`/templates/${template.templateCodeName}`}>
             View Details
           </Link>
         </Button>

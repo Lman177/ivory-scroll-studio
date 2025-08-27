@@ -1,4 +1,6 @@
-import { Link } from 'react-router-dom';
+'use client';
+
+import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Heart, Facebook, Instagram, Twitter, Mail } from 'lucide-react';
@@ -76,7 +78,7 @@ export function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-8">
           {/* Logo */}
           <div className="col-span-2 md:col-span-1">
-            <Link to="/" className="flex items-center space-x-2 mb-4">
+            <Link href="/" className="flex items-center space-x-2 mb-4">
               <Heart className="h-8 w-8 text-wedding-rose" />
               <span className="font-display text-xl font-bold">
                 WeddingInvites
@@ -94,7 +96,7 @@ export function Footer() {
               {footerLinks.product.map((link) => (
                 <li key={link.name}>
                   <Link
-                    to={link.href}
+                    href={link.href}
                     className="text-sm text-muted-foreground hover:text-primary transition-colors"
                   >
                     {link.name}
@@ -111,7 +113,7 @@ export function Footer() {
               {footerLinks.company.map((link) => (
                 <li key={link.name}>
                   <Link
-                    to={link.href}
+                    href={link.href}
                     className="text-sm text-muted-foreground hover:text-primary transition-colors"
                   >
                     {link.name}
@@ -128,7 +130,7 @@ export function Footer() {
               {footerLinks.legal.map((link) => (
                 <li key={link.name}>
                   <Link
-                    to={link.href}
+                    href={link.href}
                     className="text-sm text-muted-foreground hover:text-primary transition-colors"
                   >
                     {link.name}

@@ -1,4 +1,7 @@
-import { Link, useLocation } from 'react-router-dom';
+'use client';
+
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import { Heart, Menu, X } from 'lucide-react';
 import { useState } from 'react';
@@ -14,17 +17,17 @@ const navigation = [
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const location = useLocation();
+  const pathname = usePathname();
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2">
+          <Link href="/" className="flex items-center space-x-2">
             <Heart className="h-8 w-8 text-wedding-rose" />
             <span className="font-display text-xl font-bold text-foreground">
-              WeddingInvites
+              Ivory Scroll Studio
             </span>
           </Link>
 
@@ -33,10 +36,10 @@ export function Header() {
             {navigation.map((item) => (
               <Link
                 key={item.name}
-                to={item.href}
+                href={item.href}
                 className={cn(
                   "text-sm font-medium transition-colors hover:text-primary",
-                  location.pathname === item.href
+                  pathname === item.href
                     ? "text-primary"
                     : "text-muted-foreground"
                 )}
@@ -73,10 +76,10 @@ export function Header() {
               {navigation.map((item) => (
                 <Link
                   key={item.name}
-                  to={item.href}
+                  href={item.href}
                   className={cn(
                     "block px-3 py-2 text-base font-medium rounded-md transition-colors",
-                    location.pathname === item.href
+                    pathname === item.href
                       ? "text-primary bg-accent"
                       : "text-muted-foreground hover:text-primary hover:bg-accent"
                   )}
